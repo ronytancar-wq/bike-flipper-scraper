@@ -1,0 +1,27 @@
+name: Bazos.sk Bicycle Scraper
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'  # Run every 12 hours
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Run scraper
+        env:
+          FIREBASE_KEY: ${{ secrets.FIREBASE_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: node index.js
