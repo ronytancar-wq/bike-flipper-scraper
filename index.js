@@ -35,7 +35,7 @@ async function scrapeBazos() {
     
     // Extract bikes
     const bikes = await page.evaluate(() => {
-return Array.from(document.querySelectorAll('tr')).map(el => {        const title = el.querySelector('h2 a')?.textContent?.trim() || '';
+return Array.from(document.querySelectorAll('a[href*="bazos.sk"]')).map(el => {        const title = el.querySelector('h2 a')?.textContent?.trim() || '';
         const price = el.querySelector('.price')?.textContent?.match(/\d+/)?.[0] || '';
         const link = el.querySelector('h2 a')?.href || '';
         const img = el.querySelector('img')?.src || '';
