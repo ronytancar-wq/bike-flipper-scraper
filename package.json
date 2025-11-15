@@ -1,0 +1,15 @@
+{
+  "name": "bike-flipper-scraper",
+  "version": "1.0.0",
+  "description": "Automatický scraper Bazos.sk - scrapuje bicykly, analyzuje s OpenAI Vision, ukladá do Firestore",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.0.0",
+    "firebase-admin": "^12.0.0",
+    "openai": "^4.20.0",
+    "dotenv": "^16.3.1"
+  }
+}
